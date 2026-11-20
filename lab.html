@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}</script>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -240,6 +241,7 @@ footer{border-top:3px double var(--ink);font-style:italic}
 .lab-frame iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:620px;border:1px solid var(--line);border-radius:20px;background:#fff}
 </style>
 <style>.lab-frame iframe{border-radius:0;border-color:var(--ink)}</style>
+<style>.theme-toggle{margin-left:14px;font:inherit;font-family:var(--f-mono,"JetBrains Mono",monospace);font-size:12px;letter-spacing:.04em;background:transparent;color:var(--muted);border:1px solid var(--line);padding:5px 10px;cursor:pointer;border-radius:0}.theme-toggle:hover{color:var(--ink);border-color:var(--ink)}header.top nav.links{margin-left:auto}</style>
 </head>
 <body>
 <header class="top">
@@ -252,6 +254,8 @@ footer{border-top:3px double var(--ink);font-style:italic}
       <a href="index.html#contact">Contact</a>
       <a href="lab.html" aria-current="page" style="color:var(--ink);background:var(--chip)">Lab</a>
     </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch colour theme" onclick="(function(b){var r=document.documentElement,n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}b.textContent=n==='dark'?'☀ light':'☾ dark';})(this)">☀ light</button>
+    <script>try{document.currentScript.previousElementSibling.textContent=document.documentElement.dataset.theme==='dark'?'☀ light':'☾ dark'}catch(e){}</script>
   </div>
 </header>
 
