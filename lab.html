@@ -12,7 +12,7 @@
 <title>Interactive Lab · José Roberto Rausell-Campo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: soft single column; hero = name beside a pastel hexagonal waveguide mesh carrying light pulses; sections as quiet bands */
 :root{
@@ -164,6 +164,72 @@ p{margin:0 0 14px}
 .linklist a:hover{border-color:var(--accent)}
 .linklist small{font-family:var(--f-mono);color:var(--muted);font-size:12px;overflow-wrap:anywhere;text-align:right}
 footer{padding-block:32px 48px;color:var(--muted);font-size:14px}
+
+/* ===== Lab notebook theme (shared with the Programmable Photonics lab) ===== */
+:root{
+  --bg:#f3efe6; --surface:#fbf9f4; --ink:#1f1d1a; --muted:#6f685c; --line:#d8d0c0;
+  --lavender:#dfe2e6; --mint:#dfe8e2; --peach:#f0d5c8; --sky:#d8e0ea; --butter:#eee2c6;
+  --accent:#c23b22; --accent-ink:#fbf9f4; --chip:#ece6da;
+  --f-display:"Newsreader","Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  --f-body:"Newsreader","Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1c1a17;--surface:#24211d;--ink:#ece6da;--muted:#a59d8f;--line:#3a352e;
+  --lavender:#3a3d44;--mint:#36423c;--peach:#5a3d32;--sky:#37404c;--butter:#4d4433;
+  --accent:#e2694f;--accent-ink:#1c1a17;--chip:#2e2a25}}
+:root[data-theme="dark"]{
+  --bg:#1c1a17;--surface:#24211d;--ink:#ece6da;--muted:#a59d8f;--line:#3a352e;
+  --lavender:#3a3d44;--mint:#36423c;--peach:#5a3d32;--sky:#37404c;--butter:#4d4433;
+  --accent:#e2694f;--accent-ink:#1c1a17;--chip:#2e2a25}
+body{font-size:18px;line-height:1.62}
+header.top{border-bottom:1px solid var(--ink)}
+.mark{font-family:var(--f-display);font-weight:500;font-size:19px}
+.mark span.dot{background:none;border:1px solid var(--ink);border-radius:50%;font-size:11px}
+nav.links a{border-radius:0;font-style:italic;font-size:16px;padding:4px 2px;margin-left:14px;border-bottom:1px solid transparent}
+nav.links a:hover{background:none;border-bottom-color:var(--accent);color:var(--ink)}
+.eyebrow,.label{color:var(--accent);letter-spacing:.16em}
+h1{font-weight:400;letter-spacing:-.02em;line-height:1.0}
+h1 .soft{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--accent);font-style:italic}
+.lede{font-size:20px}
+.lede strong{font-weight:500}
+.btn{border-radius:0;border-color:var(--ink);background:transparent;font-style:italic;font-size:16px}
+.btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+.mesh-card{border-radius:0;background:var(--surface);border:1px solid var(--line)}
+.portrait{border:1px solid var(--ink);outline:6px solid var(--surface);box-shadow:none}
+.mesh-cap{font-family:var(--f-body);font-style:italic;font-size:14px;color:var(--muted)}
+.mesh-cap span:first-child::before{content:"Fig. 1 — ";font-style:normal;font-weight:600;color:var(--ink)}
+/* sections numbered like a paper */
+main{counter-reset:sec}
+section{border-top:0}
+section + section{border-top:0}
+h2{font-weight:400;font-size:clamp(30px,3.8vw,40px);border-top:3px double var(--ink);padding-top:16px;counter-increment:sec}
+h2::before{content:counter(sec) "\00a0\00a0";color:var(--accent);font-family:var(--f-mono);font-size:.5em;vertical-align:.45em;letter-spacing:.06em}
+.sec-head{align-items:flex-end}
+.sec-head h2{flex:1 1 100%}
+h3{font-weight:500}
+.chip{border-radius:0;background:none!important;border:0;padding:0;font-style:italic;color:var(--muted);font-size:16px}
+.chip+.chip::before{content:"·";margin:0 10px 0 2px;color:var(--accent);font-style:normal}
+.chips{gap:4px 0}
+.timeline .pip{border-radius:0;width:8px;height:8px;margin-top:9px;background:var(--accent)!important;transform:rotate(45deg)}
+.timeline .what{font-weight:500}
+.filters button{border-radius:0;border:0;border-bottom:2px solid transparent;background:none;font-style:italic;font-size:16px;padding:2px 2px;margin-left:14px}
+.filters button[aria-pressed="true"]{background:none;color:var(--ink);border-bottom-color:var(--accent)}
+.pub .title{font-weight:500;font-size:20px}
+.tag{border-radius:0;background:none!important;border:1px solid var(--line);color:var(--muted)}
+.tag.hl{border-color:var(--accent);color:var(--accent)}
+.pdf-link{border-radius:0}
+.proj{border-radius:0;border:0;border-top:1px solid var(--ink);background:none;padding:18px 0 0}
+.proj .swatch{border-radius:0;border:1px solid var(--line);background:var(--surface)!important}
+.proj .foot a{font-style:italic;font-weight:400}
+.mailbox{border-radius:0;background:var(--surface);border:1px solid var(--line)}
+.linklist a{border-radius:0;background:none;border:0;border-bottom:1px solid var(--line);padding:12px 2px}
+.linklist a:hover{border-bottom-color:var(--accent)}
+footer{border-top:3px double var(--ink);font-style:italic}
+:focus-visible{border-radius:0}
+.lab-frame iframe{border-radius:0;border-color:var(--ink)}
 </style>
 
 <style>
@@ -173,6 +239,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:14px}
 .lab-frame{padding-bottom:32px}
 .lab-frame iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:620px;border:1px solid var(--line);border-radius:20px;background:#fff}
 </style>
+<style>.lab-frame iframe{border-radius:0;border-color:var(--ink)}</style>
 </head>
 <body>
 <header class="top">
